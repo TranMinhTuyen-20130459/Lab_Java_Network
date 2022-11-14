@@ -1,4 +1,4 @@
-package thread.single;
+package thread.server.single;
 
 import java.io.*;
 import java.net.ServerSocket;
