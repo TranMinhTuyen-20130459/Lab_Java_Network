@@ -1,4 +1,4 @@
-package thread.server.multi;
+package Echo.server.multi;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -23,7 +23,7 @@ public class EchoChatMultiServer {
                 Socket socket = serverSocket.accept(); // Client is accepted;
                 System.out.println("Client accepted: "+socket);
 
-                WorkedThread handler = new WorkedThread(socket);
+                WorkerThread handler = new WorkerThread(socket);
                 executorService.execute(handler);
 
             }

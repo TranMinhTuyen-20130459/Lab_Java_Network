@@ -1,8 +1,8 @@
-package thread.test;
+package Echo.test;
 
-import thread.client.EchoChatClient;
+import Echo.client.EchoChatClient;
 
-public class Test_Client1 {
+public class Test_Client2 {
 
     public static void main(String[] args) {
 

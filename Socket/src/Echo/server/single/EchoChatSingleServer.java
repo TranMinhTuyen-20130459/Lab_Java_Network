@@ -1,43 +1,46 @@
-package thread.server.multi;
+package Echo.server.single;
 
 import java.io.*;
+import java.net.ServerSocket;
 import java.net.Socket;
 
-public class WorkedThread implements Runnable {
+public class EchoChatSingleServer {
 
-    private Socket socket;
+    static final int SERVER_PORT = 7;
 
-    public WorkedThread(Socket socket) {
-        this.socket = socket;
-    }
+    public static void EchoServer() {
 
-    @Override
-    public void run() {
-
-        System.out.println("Processing: " + socket);
-
+        ServerSocket serverSocket = null;
         try {
+            serverSocket = new ServerSocket(SERVER_PORT); // open Port Server -> Server is start
+            Socket socket = serverSocket.accept(); // Client is accepted
+            System.out.println(socket);
+
             InputStream is = socket.getInputStream();
             OutputStream os = socket.getOutputStream();
             DataInputStream dis = new DataInputStream(is);
             DataOutputStream dos = new DataOutputStream(os);
 
-            dos.writeUTF("Welcome");
+            String welcome = "Welcome";
+            dos.writeUTF(welcome);
+
             while (true) {
 
                 String dataFromClient = dis.readUTF();
+
+
                 if (dataFromClient.equalsIgnoreCase("Exit")) {
 
                     dos.writeUTF("Disconnect");
                     socket.close();
+                    break;
 
                 } else {
-
                     dos.writeUTF("Echo " + dataFromClient);
-
                 }
 
             }
+
         } catch (IOException e) {
 
             System.out.println("server is error");
@@ -45,4 +48,11 @@ public class WorkedThread implements Runnable {
 
 
     }
+
+    public static void main(String[] args) {
+
+        EchoServer();
+    }
+
+
 }

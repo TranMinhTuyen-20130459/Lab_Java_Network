@@ -1,4 +1,4 @@
-package thread.client;
+package Echo.client;
 
 import java.io.*;
 import java.net.Socket;
