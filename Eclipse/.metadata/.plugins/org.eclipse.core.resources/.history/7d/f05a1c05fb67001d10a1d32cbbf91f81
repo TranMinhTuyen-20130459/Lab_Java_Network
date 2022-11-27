@@ -1,0 +1,33 @@
+package cau20;
+
+import java.io.IOException;
+import java.net.ServerSocket;
+
+public class Server {
+	
+	static final String SERVER_IP="127.0.0.1";
+	static final int SERVER_PORT = 98;
+	
+	ServerSocket serverSocket;
+	
+	public Server() {
+		
+		try {
+			serverSocket = new ServerSocket(SERVER_PORT);
+			System.out.println("Waitting for client ....");
+			
+			while (true) {
+				
+				
+			}
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} // start server
+		
+	}
+	
+	
+
+}

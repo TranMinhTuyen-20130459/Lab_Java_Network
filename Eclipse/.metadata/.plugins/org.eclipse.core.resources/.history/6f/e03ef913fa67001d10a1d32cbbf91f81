@@ -1,0 +1,9 @@
+package cau20;
+
+import java.net.Socket;
+
+public class Client {
+	
+	Socket socket;
+
+}

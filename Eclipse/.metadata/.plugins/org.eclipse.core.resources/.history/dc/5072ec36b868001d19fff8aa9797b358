@@ -1,0 +1,48 @@
+package cau20;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.Socket;
+import java.util.StringTokenizer;
+
+public class Server_Process extends Thread{
+	
+	
+	Socket socket;
+	InputStream is;
+	OutputStream os;
+	
+	public Server_Process(Socket socket) {
+		
+		this.socket = socket;
+		try {
+			is = socket.getInputStream();
+			os = socket.getOutputStream();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
+	public static String findOperator(String command) {
+		
+		StringTokenizer strTokenizer;
+		if()
+		
+		return null;
+		
+	}
+	
+	public void run() {
+		
+	}
+	
+	
+	
+	
+	
+	
+
+}

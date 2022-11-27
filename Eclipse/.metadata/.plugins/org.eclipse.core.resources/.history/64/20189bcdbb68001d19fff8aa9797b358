@@ -1,0 +1,61 @@
+package cau20;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.net.Socket;
+
+public class Client {
+
+	Socket socket;
+	InputStream is;
+	OutputStream os;
+	BufferedReader br;
+	PrintWriter pw;
+
+	public Client() {
+
+		try {
+			socket = new Socket(Server.SERVER_IP, Server.SERVER_PORT);
+			is = socket.getInputStream();
+			os = socket.getOutputStream();
+			br = new BufferedReader(new InputStreamReader(is));
+			pw = new PrintWriter(new OutputStreamWriter(os), true);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+	public void action() {
+
+		try {
+			String hello = br.readLine();
+			System.out.println(hello);
+
+			while (true) {
+				
+				String result_from_server = br.readLine();
+				System.out.println(result_from_server);
+				
+				
+
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+	public static void main(String[] args) {
+
+		Client cl_1 = new Client();
+	}
+
+}

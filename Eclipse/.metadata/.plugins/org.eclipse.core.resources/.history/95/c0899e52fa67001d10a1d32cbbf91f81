@@ -1,0 +1,26 @@
+package cau20;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.Socket;
+
+public class Client {
+	
+	Socket socket;
+	InputStream is;
+	OutputStream os;
+	
+	public Client() {
+		
+		try {
+			socket = new Socket(Server.SERVER_IP, Server.SERVER_PORT);
+			is = socket.getInputStream();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
+}
